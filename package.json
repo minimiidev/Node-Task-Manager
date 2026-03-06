@@ -4,7 +4,8 @@
 	"description": "",
 	"main": "app.js",
 	"scripts": {
-		"start": "npx tsx --watch src/app.ts",
+		"start": "npm run build && node dist/app.js",
+		"build": "rimraf ./dist && tsc",
 		"dev": "npx tsx --watch src/app.ts"
 	},
 	"keywords": [],
