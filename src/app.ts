@@ -41,3 +41,5 @@ async function main() {
         console.log(error)
     }
 }
+
+export default app;
