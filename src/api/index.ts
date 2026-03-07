@@ -23,23 +23,25 @@ app.use("/api/v1/tasks", TaskRoutes.routes);
 // 404
 app.use(notFound);
 
+connectDB(process.env.MONGO_URI ?? "");
+
 // Error handler (siempre al final)
 app.use(errorHandlerMiddleware);
 
-(async () => {
-    main();
-})();
+// (async () => {
+//     main();
+// })();
 
-async function main() {
-    try {
-        await connectDB(process.env.MONGO_URI ?? "");
+// async function main() {
+//     try {
+//         await connectDB(process.env.MONGO_URI ?? "");
 
-        app.listen(Environment.PORT, () => {
-            console.log(`Server on port: http://localhost:${Environment.PORT}`)
-        })
-    } catch (error) {
-        console.log(error)
-    }
-}
+//         app.listen(Environment.PORT, () => {
+//             console.log(`Server on port: http://localhost:${Environment.PORT}`)
+//         })
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
 
 export default app;
